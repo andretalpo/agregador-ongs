@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="form1">
+			<p:panelGrid columns="3">
+				<h:outputText value="Enter your name: "></h:outputText>
+				<p:inputText id="userName" value="#{user.name}" required="true"
+					requiredMessage="You need to enter a valid name">
+				</p:inputText>
+				<p:message for="userName" styleClass="errorMessage" />
+			</p:panelGrid>
+
+			<p:commandButton value="Greet" actionListener="#{user.greet}">
+			</p:commandButton>
+
+			<p:calendar></p:calendar>
+
+			<p:message styleClass="informationMessage" for="form1" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

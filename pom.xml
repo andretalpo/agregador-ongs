@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<name>agregador-ongs</name>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.aet.agregadorongs</groupId>
+	<artifactId>agregador-ongs</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>agregador-ongs-ear</module>
+		<module>agregador-ongs-web</module>
+		<module>agregador-ongs-ejb</module>
+	</modules>
+
+	<properties>
+		<!-- maven-compiler-plugin -->
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+
+		<!-- other plugin versions -->
+		<version.compiler.plugin>3.8.1</version.compiler.plugin>
+		<version.ear.plugin>3.0.1</version.ear.plugin>
+		<version.ejb.plugin>3.0.1</version.ejb.plugin>
+		<version.surefire.plugin>2.16</version.surefire.plugin>
+		<version.war.plugin>3.2.3</version.war.plugin>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.wildfly.bom/wildfly-javaee8-with-tools -->
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>wildfly-javaee8-with-tools</artifactId>
+				<version>17.0.1.Final</version>
+				<type>pom</type>
+			</dependency>
+
+			<!-- Defaults Projects -->
+			<dependency>
+				<groupId>br.com.aet.agregadorongs</groupId>
+				<artifactId>agregador-ongs-ejb</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+			</dependency>
+			<dependency>
+				<groupId>br.com.aet.agregadorongs</groupId>
+				<artifactId>agregador-ongs-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+				<scope>compile</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>Prime Repo</name>
+			<url>http://repository.primefaces.org</url>
+		</repository>
+	</repositories>
+</project>
